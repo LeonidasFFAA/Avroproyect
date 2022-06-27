@@ -21,7 +21,7 @@ namespace Proyecto
 
             routes.MapRoute(
                 name: "Chief",
-                url: "Chief/{id}",
+                url: "Chief/{action}/{id}",
                 defaults: new { controller = "ChiefMenu", action = "ChiefMenu", id = UrlParameter.Optional }
             );
 
