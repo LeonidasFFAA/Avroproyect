@@ -18,6 +18,13 @@ namespace Proyecto
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Chief",
+                url: "Chief/{id}",
+                defaults: new { controller = "ChiefMenu", action = "ChiefMenu", id = UrlParameter.Optional }
+            );
+
         }
     }
 }

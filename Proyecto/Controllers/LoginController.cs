@@ -19,16 +19,17 @@ namespace Proyecto.Controllers
         [HttpPost]
         public ActionResult Login(FormCollection formObj)
         {
-            string email = formObj["email"];
-            string password= formObj["password"];
-            if(AccessQuery(email, password))
-            {
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return RedirectToAction("Index");
-            }
+            return RedirectToAction("Menu","ChiefMenu");
+            //string email = formObj["email"];
+            //string password= formObj["password"];
+            //if(AccessQuery(email, password))
+            //{
+            //    return RedirectToAction("Index");
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Index");
+            //}
         }
 
         // Método que ejecuta la consulta en base de datos para comprobar si existe el usuario.
