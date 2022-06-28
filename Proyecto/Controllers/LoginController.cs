@@ -20,7 +20,6 @@ namespace Proyecto.Controllers
         public ActionResult Login(FormCollection formObj)
         {
             User user = new User();
-            //return RedirectToAction("Menu","ChiefMenu");
             string email = formObj["email"];
             string password= formObj["password"];
             user = user.StartSession(email, password);
