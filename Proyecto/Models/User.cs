@@ -17,15 +17,15 @@ namespace Proyecto.Models
         public string Mail { get; set; }
         public Role Role { get; set; }
 
-        public User(int Id, string Name, string Rut, string Password, int Phone, string Mail, Role Role) 
+        public User(int id, string name, string rut, string password, int phone, string mail, Role role) 
         {
-            this.Id = Id;
-            this.Name = Name;
-            this.Rut = Rut;
-            this.Password = Password;
-            this.Phone = Phone;
-            this.Mail = Mail;
-            this.Role = Role;
+            Id = id;
+            Name = name;
+            Rut = rut;
+            Password = password;
+            Phone = phone;
+            Mail = mail;
+            Role = role;
         }
         public User() { }
 
@@ -35,7 +35,7 @@ namespace Proyecto.Models
             {
                 User user = new User();
                 Role role = new Role();
-                MySqlConnection conn = AvroDB.Conexion();
+                MySqlConnection conn = AvroDB.Connection();
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand("SELECT * FROM Usuario WHERE correo LIKE '" + email + "' AND clave LIKE '" + password + "';", conn);
                 using (var reader = cmd.ExecuteReader())
@@ -48,15 +48,16 @@ namespace Proyecto.Models
                         user.Password = Convert.ToString((string)reader["clave"]);
                         user.Phone = Convert.ToInt32(reader["fono"]);
                         user.Mail = Convert.ToString((string)reader["correo"]);
-                        user.Role = role.SearchRoleById(Convert.ToInt32(reader["Rol_id"])); // Envia el parámetro recibido de ID hacia el método de búsqueda de ROL
+                        user.Role = role.SearchRole(Convert.ToInt32(reader["Rol_id"])); // Envia el parámetro recibido de ID hacia el método de búsqueda de ROL
                     }
                 }
                 conn.Close();
                 return user;
             }
-            catch (Exception)
+            catch (MySqlException ex)
             {
-                throw;
+                Console.WriteLine("Error: " + ex.Message);
+                return null;
             }
         }
 

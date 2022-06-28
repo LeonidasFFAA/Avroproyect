@@ -8,6 +8,6 @@ namespace Proyecto.Models.DAO
 {
     internal interface IRole
     {
-        Role SearchRoleById(int Id);
+        Role SearchRole(int id);
     }
 }

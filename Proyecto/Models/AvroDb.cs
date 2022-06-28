@@ -8,7 +8,7 @@ namespace Proyecto.Models
 {
     public class AvroDB
     {
-        public static MySqlConnection Conexion()
+        public static MySqlConnection Connection()
         {
             var servidor = "34.176.111.186";
             string bd = "Avro";

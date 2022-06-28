@@ -12,14 +12,14 @@ namespace Proyecto.Models
     {
         public int Id { get; set; }
         public string Description { get; set; }
-        public Role SearchRoleById(int Id)
+        public Role SearchRole(int id)
         {
             Role role = new Role();
             try
             {
-                MySqlConnection conn = AvroDB.Conexion();
+                MySqlConnection conn = AvroDB.Connection();
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Rol WHERE id LIKE '" + Id+ "';", conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Rol WHERE id LIKE '" + id+ "';", conn);
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())

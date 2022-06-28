@@ -238,10 +238,31 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\AvroDb.cs" />
+    <Compile Include="Models\BuildingSite.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Commune.cs" />
+    <Compile Include="Models\ConstructionCompany.cs" />
+    <Compile Include="Models\DAO\IAddress.cs" />
+    <Compile Include="Models\DAO\IBuildingSite.cs" />
+    <Compile Include="Models\DAO\ICommune.cs" />
+    <Compile Include="Models\DAO\IConstructionCompany.cs" />
+    <Compile Include="Models\DAO\IDeliveryGuide.cs" />
+    <Compile Include="Models\DAO\IMaintenance.cs" />
+    <Compile Include="Models\DAO\IOrder.cs" />
+    <Compile Include="Models\DAO\IRegion.cs" />
     <Compile Include="Models\DAO\IRole.cs" />
+    <Compile Include="Models\DAO\ITool.cs" />
     <Compile Include="Models\DAO\IUser.cs" />
+    <Compile Include="Models\DeliveryGuide.cs" />
+    <Compile Include="Models\Maintenance.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\PayMethod.cs" />
+    <Compile Include="Models\Region.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Tool.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
