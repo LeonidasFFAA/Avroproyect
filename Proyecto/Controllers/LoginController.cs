@@ -27,7 +27,7 @@ namespace Proyecto.Controllers
             {
                 if (user.Role.Id == 2)
                 {
-                    return RedirectToAction("Menu", "ChiefMenu");
+                    return RedirectToAction("Menu", "Chief");
                 } else if (user.Role.Id == 3)
                 {
                     return RedirectToAction("Index"); //Debe redirigir a las vistas de técnico

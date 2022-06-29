@@ -1,4 +1,7 @@
-﻿
+﻿@using Proyecto.Models
+
+@model ConstructionCompany
+
 @{
     ViewBag.Title = "Rent";
 }
@@ -87,11 +90,10 @@
                         <table style="margin: auto;">
                             <tr>
                                 <td class="p-2">
-
                                     <div class="form-row p-2">
                                         <div class="form-group col-md-12">
                                             <label class="title">Nombre de constructora</label>
-                                            <asp:DropDownList ID="DropDownConstructora" runat="server" class="form-select"></asp:DropDownList>
+                                            @Html.DropDownListFor(m => m.Name, Model.constructionCompanies);
                                         </div>
                                     </div>
                                 </td>
