@@ -38,21 +38,29 @@ namespace Proyecto.Models
                 MySqlConnection conn = AvroDB.Connection();
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand("SELECT * FROM Usuario WHERE correo LIKE '" + email + "' AND clave LIKE '" + password + "';", conn);
-                using (var reader = cmd.ExecuteReader())
+                object obj = cmd.ExecuteScalar();
+                if (Convert.ToInt32(obj) != 0)
                 {
-                    while (reader.Read())
+                    using (var reader = cmd.ExecuteReader())
                     {
-                        user.Id = Convert.ToInt32(reader["id"]);
-                        user.Name = Convert.ToString((string)reader["nombre"]);
-                        user.Rut = Convert.ToString((string)reader["rut"]);
-                        user.Password = Convert.ToString((string)reader["clave"]);
-                        user.Phone = Convert.ToInt32(reader["fono"]);
-                        user.Mail = Convert.ToString((string)reader["correo"]);
-                        user.Role = role.SearchRole(Convert.ToInt32(reader["Rol_id"])); // Envia el parámetro recibido de ID hacia el método de búsqueda de ROL
+                        while (reader.Read())
+                        {
+                            user.Id = Convert.ToInt32(reader["id"]);
+                            user.Name = Convert.ToString((string)reader["nombre"]);
+                            user.Rut = Convert.ToString((string)reader["rut"]);
+                            user.Password = Convert.ToString((string)reader["clave"]);
+                            user.Phone = Convert.ToInt32(reader["fono"]);
+                            user.Mail = Convert.ToString((string)reader["correo"]);
+                            user.Role = role.SearchRole(Convert.ToInt32(reader["Rol_id"])); // Envia el parámetro recibido de ID hacia el método de búsqueda de ROL
+                        }
                     }
+                    return user;
+                }
+                else
+                {
+                    return null;
                 }
                 conn.Close();
-                return user;
             }
             catch (MySqlException ex)
             {

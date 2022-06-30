@@ -1,8 +1,4 @@
-﻿@using Proyecto.Models
-
-@model ConstructionCompany
-
-@{
+﻿@{
     ViewBag.Title = "Rent";
 }
 <!DOCTYPE html>
@@ -33,7 +29,7 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Contructora
                                 </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="Rent">Arriendo</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="Change">Cambio</a></li>
@@ -43,7 +39,7 @@
                                     <li><a class="dropdown-item" href="ConstructionIncome">Nueva Constructora</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="IncomeWork">Nueva Obra</a></li>
-                            </ul>
+                                </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -93,30 +89,27 @@
                                     <div class="form-row p-2">
                                         <div class="form-group col-md-12">
                                             <label class="title">Nombre de constructora</label>
-                                            @Html.DropDownListFor(m => m.Name, Model.constructionCompanies);
+                                            @Html.DropDownList("getconstructioncompany", "-- Selescciona --")
                                         </div>
                                     </div>
                                 </td>
                                 <td class="p-2">
                                     <div class="form-group col-md-12">
                                         <label class="title">Obra Contructora</label>
-                                        <asp:DropDownList ID="DropDownObra" runat="server" class="form-select"></asp:DropDownList>
+                                        @Html.DropDownList("getBuildingSite", "-- Selescciona --")
                                     </div>
                                 </td>
                                 <td class="p-2">
                                     <div class="form-group col-md-12">
                                         <label class="title">Contacto</label>
-                                        <asp:DropDownList ID="DropDownContacto" runat="server" class="form-select"></asp:DropDownList>
+                                        @Html.DropDownList("getContacts", "-- Selescciona --")
                                     </div>
                                 </td>
 
                                 <td class="p-2">
                                     <div class="form-group col-md-12">
-                                        <label class="title">Tipo de documento</label>
-                                        <select class="form-select" id="specificSizeSelect">
-                                            <option selected></option>
-                                            <option value="1">Guia de despacho</option>
-                                        </select>
+                                        <label class="title">Forma de pago</label>
+                                        @Html.DropDownList("getPayMethod", "-- Selescciona --")
                                     </div>
                                 </td>
 
@@ -129,13 +122,13 @@
                                 <div class="container p-5">
                                     <div class="form-group col-md-12">
                                         <label class="title">Tipo de Herramientas</label>
-                                        <asp:DropDownList ID="DropDownCategoria" runat="server" class="form-select"></asp:DropDownList>
+                                        @Html.DropDownList("getCategory", "-- Selescciona --")
                                     </div>
                                 </div>
                             <td>
                                 <div class="form-group col-md-12">
                                     <label class="title">Herramientas</label>
-                                    <asp:DropDownList ID="DropDownHerramienta" runat="server" class="form-select"></asp:DropDownList>
+                                    @Html.DropDownList("getTools", "-- Selescciona --")
                                 </div>
                             </td>
                         </tr>

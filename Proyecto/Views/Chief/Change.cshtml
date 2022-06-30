@@ -41,7 +41,7 @@
                                     <li><a class="dropdown-item" href="ConstructionIncome">Nueva Constructora</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="IncomeWork">Nueva Obra</a></li>
-                            </ul>
+                                </ul>
                             </li>
 
                             <li class="nav-item dropdown">
@@ -92,83 +92,89 @@
 
                                     <div class="form-row p-2">
                                         <div class="form-group col-md-12">
-                                            <label class="title">Rut empresa</label>
-                                            <input type="text" class="form-control" name="RutEmp">
+                                            <label class="title">Nombre de constructora</label>
+                                            @Html.DropDownList("getconstructioncompany", "-- Selescciona --")
                                         </div>
                                     </div>
                                 </td>
                                 <td class="p-2">
                                     <div class="form-group col-md-12">
                                         <label class="title">Obra Contructora</label>
-                                        <select class="form-select" id="specificSizeSelect">
-                                            <option selected>...</option>
-                                            <option value="1">A</option>
-                                            <option value="2">B</option>
-                                            <option value="3">C</option>
-                                            <option value="4">D</option>
-                                        </select>
+                                        @Html.DropDownList("getBuildingSite", "-- Selescciona --")
                                     </div>
                                 </td>
                                 <td class="p-2">
                                     <div class="form-group col-md-12">
                                         <label class="title">Contacto</label>
-                                        <select class="form-select" id="specificSizeSelect">
-                                            <option selected>...</option>
-                                            <option value="1">Edgar Leal</option>
-                                            <option value="2">Franco Casanova</option>
-                                            <option value="3">Kevin </option>
-                                        </select>
+                                        @Html.DropDownList("getContacts", "-- Selescciona --")
                                     </div>
                                 </td>
 
                                 <td class="p-2">
                                     <div class="form-group col-md-12">
-                                        <label class="title">Tipo de documento</label>
-                                        <select class="form-select" id="specificSizeSelect">
-                                            <option selected>...</option>
-                                            <option value="1">Factura</option>
-                                            <option value="2">Guia de despacho</option>
-                                        </select>
+                                        <label class="title">Forma de pago</label>
+                                        @Html.DropDownList("getPayMethod", "-- Selescciona --")
                                     </div>
                                 </td>
 
                             </tr>
                         </table>
                     </div>
-                    <table style="margin: auto;">
-                        <tr>
-                            <td>
-                                <div class="container p-5">
-                                    <div class="form-group col-md-12">
-                                        <label class="title">Tipo de Herramientas</label>
-                                        <select class="form-select" id="specificSizeSelect">
-                                            <option selected>...</option>
-                                            <option value="1">Cincelado</option>
-                                            <option value="2">Demoledor</option>
-                                        </select>
+                    
+                    <div class="col-xs-6">
+                        <h5>Heramientas en bodega (arriendo)</h5>
+                        <table style="margin: auto;">
+                            <tr>
+                                <td>
+                                    <div class="container p-4">
+                                        <div class="form-group col-md-12">
+                                            <label class="title">Tipo de Herramientas</label>
+                                            @Html.DropDownList("getCategory", "-- Selescciona --")
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="container p-5">
-                                    <div class="form-group col-md-12">
-                                        <label class="title">Tipo de Herramientas</label>
-                                        <select class="form-select" id="specificSizeSelect">
-                                            <option selected>...</option>
-                                            <option value="1">Cincelado</option>
-                                            <option value="2">Demoledor</option>
-                                        </select>
+                                </td>
+                                <td>
+                                    <div class="container p-4">
+                                        <div class="form-group col-md-12">
+                                            <label class="title">Herramientas</label>
+                                            @Html.DropDownList("getTools", "-- Selescciona --")
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-xs-6">
+                        <h5>Heramientas en obra (termino)</h5>
+                        <table style="margin: auto;">
+                            <tr>
+                                <td>
+                                    <div class="container p-4">
+                                        <div class="form-group col-md-12">
+                                            <label class="title">Tipo de Herramientas</label>
+                                            @Html.DropDownList("getCategory", "-- Selescciona --")
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="container p-4">
+                                        <div class="form-group col-md-12">
+                                            <label class="title">Herramientas</label>
+                                            @Html.DropDownList("getTools", "-- Selescciona --")
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                     <div class="container p-5">
                         <div class="d-grid gap-2 col-6 mx-auto">
                             <button class="btn btn-secondary" type="button">Enviar</button>
 
                         </div>
                     </div>
+
+
                 </div>
             </div>
             <!-- footer -->
