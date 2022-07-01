@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Proyecto.Models.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace Proyecto.Models
 {
-    public class DeliveryGuide
+    public class DeliveryGuide : IDeliveryGuide
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
@@ -20,6 +21,26 @@ namespace Proyecto.Models
             Expiration = expiration;
             this.user = user;
             this.payMethod = payMethod;
+        }
+
+        public bool AddDeliveryGuide(DeliveryGuide deliveryGuide)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteDeliveryGuide(int deliveryGuideId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ModifyDeliveryGuide(int deliveryGuideId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DeliveryGuide GetDeliveryGuide(int deliveryGuideId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

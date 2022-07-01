@@ -1,4 +1,5 @@
-﻿using Proyecto.Models.DAO;
+﻿using MySql.Data.MySqlClient;
+using Proyecto.Models.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,9 +55,44 @@ namespace Proyecto.Models
             throw new NotImplementedException();
         }
 
-        public Tool SearchTool(int idTool)
+        public Tool GetTool(int idTool)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Tool tool = new Tool();
+                MySqlConnection conn = AvroDB.Connection();
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Herramienta WHERE id LIKE '" + idTool + "';", conn);
+                object obj = cmd.ExecuteScalar();
+                if (Convert.ToInt32(obj) != 0)
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            tool.Id = Convert.ToInt32(reader["id"]);
+                            tool.Name = Convert.ToString((string)reader["nombre"]);
+                            tool.Brand = Convert.ToString((string)reader["marca"]);
+                            //tool.EntryDate = Convert.ToDateTime(reader["fechaingreso"]);
+                            //tool.LastModifyDate = Convert.ToDateTime(reader["ultima_modificacion"]);
+                            //tool.Observation = Convert.ToString((string)reader["observacion"]);
+                            tool.Category = Category.GetCategory(Convert.ToInt32(reader["Categoria_id"]));
+                            tool.State = State.GetState(Convert.ToInt32(reader["Estado_id"]));
+                        }
+                    }
+                    conn.Close();
+                    return tool;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return null;
+            }
         }
     }
 }

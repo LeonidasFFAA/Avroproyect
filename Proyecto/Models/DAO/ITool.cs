@@ -13,6 +13,6 @@ namespace Proyecto.Models.DAO
         void DisableTool(int idTool);
         void ModifyTool(Tool tool);
         void DeleteTool(int idTool);
-        Tool SearchTool(int idTool);
+        Tool GetTool(int idTool);
     }
 }

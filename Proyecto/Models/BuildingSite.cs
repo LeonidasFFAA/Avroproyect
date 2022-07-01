@@ -1,4 +1,5 @@
-﻿using Proyecto.Models.DAO;
+﻿using MySql.Data.MySqlClient;
+using Proyecto.Models.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +41,41 @@ namespace Proyecto.Models
 
         public BuildingSite GetBuildingSite(int buildingSiteId)
         {
-            throw new NotImplementedException();
+            //try
+            //{
+            //    BuildingSite buildingSite = new BuildingSite();
+            //    MySqlConnection conn = AvroDB.Connection();
+            //    conn.Open();
+            //    MySqlCommand cmd = new MySqlCommand("SELECT * FROM Constructora WHERE id LIKE '"+buildingSiteId+"';", conn);
+            //    object obj = cmd.ExecuteScalar();
+            //    if (Convert.ToInt32(obj) != 0)
+            //    {
+            //        using (var reader = cmd.ExecuteReader())
+            //        {
+            //            while (reader.Read())
+            //            {
+            //                buildingSite.Id = Convert.ToInt32(reader["id"]);
+            //                buildingSite.Name = Convert.ToString((string)reader["nombre"]);
+            //                buildingSite.Phone = Convert.ToString((string)reader["rut"]);
+            //                buildingSite.Password = Convert.ToString((string)reader["clave"]);
+            //                buildingSite.Phone = Convert.ToInt32(reader["fono"]);
+            //                buildingSite.Mail = Convert.ToString((string)reader["correo"]);
+            //                buildingSite.Role = role.SearchRole(Convert.ToInt32(reader["Rol_id"])); // Envia el parámetro recibido de ID hacia el método de búsqueda de ROL
+            //            }
+            //        }
+            //        conn.Close();
+            //        return buildingSite;
+            //    }
+            //    else
+            //    {
+            //        return null;
+            //    }
+            //}
+            //catch (MySqlException ex)
+            //{
+            //    Console.WriteLine("Error: " + ex.Message);
+                return null;
+            //}
         }
     }
 }

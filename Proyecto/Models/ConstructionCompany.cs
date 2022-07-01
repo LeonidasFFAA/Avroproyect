@@ -41,7 +41,31 @@ namespace Proyecto.Models
 
         public ConstructionCompany GetConstructionCompany(int constructionCompanyId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var constructionCompany = new ConstructionCompany();
+                MySqlConnection conn = AvroDB.Connection();
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Constructora WHERE id LIKE '"+constructionCompanyId+"';", conn);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        constructionCompany.Id = Convert.ToInt32(reader["id"]);
+                        constructionCompany.Name = Convert.ToString(reader["nombre"]);
+                        constructionCompany.Rut = Convert.ToString(reader["rut"]);
+                        constructionCompany.Order = Convert.ToString(reader["giro"]);
+                    }
+                }
+                conn.Close();
+                
+                return constructionCompany;
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return null;
+            }
         }
         //Obtención de una lista de las Constructoras desde la base de datos
         public static SelectList GetConstructionCompanies()
