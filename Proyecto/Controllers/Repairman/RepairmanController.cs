@@ -9,7 +9,19 @@ namespace Proyecto.Controllers.Repairman
     public class RepairmanController : Controller
     {
         // GET: Repairman
-        public ActionResult Index()
+        public ActionResult Menu()
+        {
+            return View();
+        }
+        public ActionResult DetailRep()
+        {
+            return View();
+        }
+        public ActionResult InventoryRep()
+        {
+            return View();
+        }
+        public ActionResult MaintenanceRep()
         {
             return View();
         }

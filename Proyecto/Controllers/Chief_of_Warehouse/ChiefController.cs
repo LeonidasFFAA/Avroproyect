@@ -402,7 +402,19 @@ namespace Proyecto.Controllers.Chief_of_Warehouse
             return View();
         }
         
+        public ActionResult ConstructionIncome()
+        {
+            return View();
+        }
 
+        public ActionResult IncomeWork()
+        {
+            return View();
+        }
+        public ActionResult ToolInput()
+        {
+            return View();
+        }
 
     }
 }
