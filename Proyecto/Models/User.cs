@@ -54,13 +54,13 @@ namespace Proyecto.Models
                             user.Role = role.SearchRole(Convert.ToInt32(reader["Rol_id"])); // Envia el parámetro recibido de ID hacia el método de búsqueda de ROL
                         }
                     }
+                    conn.Close();
                     return user;
                 }
                 else
                 {
                     return null;
                 }
-                conn.Close();
             }
             catch (MySqlException ex)
             {

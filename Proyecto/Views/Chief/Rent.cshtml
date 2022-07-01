@@ -14,7 +14,6 @@
     <title>Avro: Arriendo</title>
 </head>
 <body>
-    <form id="form1" runat="server">
         <div>
             <!-- Navbar-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -72,6 +71,8 @@
                 </div>
             </nav>
             <!-- form -->
+            @using (Html.BeginForm("Rent", "Chief", FormMethod.Post))
+            { 
             <div class="p-5 bg-secondary">
                 <div class="container bg-light p-5">
                     <div class="form-row">
@@ -89,27 +90,27 @@
                                     <div class="form-row p-2">
                                         <div class="form-group col-md-12">
                                             <label class="title">Nombre de constructora</label>
-                                            @Html.DropDownList("getconstructioncompany", "-- Selescciona --")
+                                            @Html.DropDownList("getconstructioncompany",null, "Seleccione constructora", htmlAttributes: new { @required="required"});
                                         </div>
                                     </div>
                                 </td>
                                 <td class="p-2">
                                     <div class="form-group col-md-12">
                                         <label class="title">Obra Contructora</label>
-                                        @Html.DropDownList("getBuildingSite", "-- Selescciona --")
+                                        @Html.DropDownList("getBuildingSite", null, "Selecciona obra", htmlAttributes: new { @required = "required" })
                                     </div>
                                 </td>
                                 <td class="p-2">
                                     <div class="form-group col-md-12">
                                         <label class="title">Contacto</label>
-                                        @Html.DropDownList("getContacts", "-- Selescciona --")
+                                        @Html.DropDownList("getContacts", null, "Selecciona contacto", htmlAttributes: new { @required = "required" })
                                     </div>
                                 </td>
 
                                 <td class="p-2">
                                     <div class="form-group col-md-12">
                                         <label class="title">Forma de pago</label>
-                                        @Html.DropDownList("getPayMethod", "-- Selescciona --")
+                                        @Html.DropDownList("getPayMethod", null, "Selecciona forma de pago", htmlAttributes: new { @required = "required" })
                                     </div>
                                 </td>
 
@@ -122,13 +123,13 @@
                                 <div class="container p-5">
                                     <div class="form-group col-md-12">
                                         <label class="title">Tipo de Herramientas</label>
-                                        @Html.DropDownList("getCategory", "-- Selescciona --")
+                                        @Html.DropDownList("getCategory", null, "Selecciona tipo de herramienta", htmlAttributes: new { @required = "required" })
                                     </div>
                                 </div>
                             <td>
                                 <div class="form-group col-md-12">
                                     <label class="title">Herramientas</label>
-                                    @Html.DropDownList("getTools", "-- Selescciona --")
+                                    @Html.DropDownList("getTools", null, "Selecciona herramienta", htmlAttributes: new { @required = "required" })
                                 </div>
                             </td>
                         </tr>
@@ -136,10 +137,11 @@
                 </div>
                 <div class="container p-5">
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <asp:Button ID="crear" runat="server" Text="Crear" class="btn btn-secondary" OnClick="crear_Click" />
+                        <input class="btn btn-lg btn-primary" type="submit" value="Guardar" />
                     </div>
                 </div>
             </div>
+            }
         </div>
         <!-- footer -->
         <div class="container-fluid align-self-end">
@@ -192,6 +194,5 @@
         </div>
         <!-- Option 1: Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    </form>
 </body>
 </html>

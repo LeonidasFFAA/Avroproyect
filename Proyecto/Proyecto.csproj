@@ -231,6 +231,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\DAO\IContact.cs" />
+    <Compile Include="Models\DAO\IPayMethod.cs" />
     <Compile Include="Models\Data\AvroDb.cs" />
     <Compile Include="Models\BuildingSite.cs" />
     <Compile Include="Models\Category.cs" />
