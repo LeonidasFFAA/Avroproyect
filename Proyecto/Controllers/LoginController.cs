@@ -30,7 +30,7 @@ namespace Proyecto.Controllers
                     return RedirectToAction("Menu", "Chief");
                 } else if (user.Role.Id == 3)
                 {
-                    return RedirectToAction("Index"); //Debe redirigir a las vistas de técnico
+                    return RedirectToAction("Menu", "Repairman");
                 }
             }
             return RedirectToAction("Index");
